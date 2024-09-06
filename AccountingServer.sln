@@ -3,9 +3,69 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E4BB662E-2D2D-404B-AC75-EDF4640C58F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BACE9E7E-542C-414E-8930-250E598FCCE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C552B99D-DF2C-4FFA-9972-F870C256B8C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{A19A7BA1-5A3F-422A-810A-E8FC61CA9F14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingServer.Application", "AccountingServer.Application\AccountingServer.Application.csproj", "{D0C80906-0557-49BA-A5DD-3458D10465D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingServer.Domain", "AccountingServer.Domain\AccountingServer.Domain.csproj", "{FF50958C-1656-4D04-9271-A844D9043658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingServer.Infrastructure", "AccountingServer.Infrastructure\AccountingServer.Infrastructure.csproj", "{EEC4A002-E149-4B23-BB01-336C5A914F79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingServer.Persistance", "AccountingServer.Persistance\AccountingServer.Persistance.csproj", "{EAAD5136-2DB0-4B95-A20F-C9B77AAEC55C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingServer.Presentation", "AccountingServer.Presentation\AccountingServer.Presentation.csproj", "{342F2C1D-C148-4580-BCC5-B4A9E18735FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingServer.WebApi", "AccountingServer.WebApi\AccountingServer.WebApi.csproj", "{9AB020A0-2A11-4D8A-916C-6D56DDAF86BC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0C80906-0557-49BA-A5DD-3458D10465D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C80906-0557-49BA-A5DD-3458D10465D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C80906-0557-49BA-A5DD-3458D10465D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C80906-0557-49BA-A5DD-3458D10465D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF50958C-1656-4D04-9271-A844D9043658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF50958C-1656-4D04-9271-A844D9043658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF50958C-1656-4D04-9271-A844D9043658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF50958C-1656-4D04-9271-A844D9043658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC4A002-E149-4B23-BB01-336C5A914F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC4A002-E149-4B23-BB01-336C5A914F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC4A002-E149-4B23-BB01-336C5A914F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC4A002-E149-4B23-BB01-336C5A914F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAAD5136-2DB0-4B95-A20F-C9B77AAEC55C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAAD5136-2DB0-4B95-A20F-C9B77AAEC55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAAD5136-2DB0-4B95-A20F-C9B77AAEC55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAAD5136-2DB0-4B95-A20F-C9B77AAEC55C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{342F2C1D-C148-4580-BCC5-B4A9E18735FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{342F2C1D-C148-4580-BCC5-B4A9E18735FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{342F2C1D-C148-4580-BCC5-B4A9E18735FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{342F2C1D-C148-4580-BCC5-B4A9E18735FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AB020A0-2A11-4D8A-916C-6D56DDAF86BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB020A0-2A11-4D8A-916C-6D56DDAF86BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB020A0-2A11-4D8A-916C-6D56DDAF86BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB020A0-2A11-4D8A-916C-6D56DDAF86BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C552B99D-DF2C-4FFA-9972-F870C256B8C2} = {E4BB662E-2D2D-404B-AC75-EDF4640C58F0}
+		{A19A7BA1-5A3F-422A-810A-E8FC61CA9F14} = {E4BB662E-2D2D-404B-AC75-EDF4640C58F0}
+		{D0C80906-0557-49BA-A5DD-3458D10465D6} = {C552B99D-DF2C-4FFA-9972-F870C256B8C2}
+		{FF50958C-1656-4D04-9271-A844D9043658} = {C552B99D-DF2C-4FFA-9972-F870C256B8C2}
+		{EEC4A002-E149-4B23-BB01-336C5A914F79} = {A19A7BA1-5A3F-422A-810A-E8FC61CA9F14}
+		{EAAD5136-2DB0-4B95-A20F-C9B77AAEC55C} = {A19A7BA1-5A3F-422A-810A-E8FC61CA9F14}
+		{342F2C1D-C148-4580-BCC5-B4A9E18735FD} = {A19A7BA1-5A3F-422A-810A-E8FC61CA9F14}
+		{9AB020A0-2A11-4D8A-916C-6D56DDAF86BC} = {E4BB662E-2D2D-404B-AC75-EDF4640C58F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF8DB4D7-6404-4661-9893-F246D98D9E3C}
