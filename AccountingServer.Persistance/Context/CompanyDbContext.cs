@@ -8,7 +8,7 @@ namespace AccountingServer.Persistance.Context
 	{
 		private string ConnectionString = "";
 
-		public CompanyDbContext(string CompanyId,Company company = null)
+		public CompanyDbContext(Company company = null)
 		{
 			if(company != null)
 			{
@@ -50,7 +50,7 @@ namespace AccountingServer.Persistance.Context
 		{
 			public CompanyDbContext CreateDbContext(string[] args)
 			{
-				return new CompanyDbContext("");
+				return new CompanyDbContext();
 			}
 		}
 	}

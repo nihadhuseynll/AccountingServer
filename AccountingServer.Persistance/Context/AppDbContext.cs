@@ -3,6 +3,7 @@ using AccountingServer.Domain.AppEntities;
 using AccountingServer.Domain.AppEntities.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace AccountingServer.Persistance.Context
 {
@@ -35,6 +36,16 @@ namespace AccountingServer.Persistance.Context
 			return base.SaveChangesAsync(cancellationToken);
 		}
 
+		public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+		{
+			public AppDbContext CreateDbContext(string[] args)
+			{
+				var optionsBuilder = new DbContextOptionsBuilder();
 
+				var connectionString = "Data Source=DESKTOP-EQ43JR2;Initial Catalog=MasterDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+				optionsBuilder.UseSqlServer(connectionString);
+				return new AppDbContext(optionsBuilder.Options);
+			}
+		}
 	}
 }

@@ -15,11 +15,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 				 options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<AppDbContext>();
 
-builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddControllers().AddApplicationPart(typeof(AccountingServer.Presentation.AssemblyReference).Assembly);
 
-builder.Services.AddControllers().AddApplicationPart(typeof(AccountingServer.Persistance.AssemblyReference).Assembly);
 builder.Services.AddMediatR(typeof(AccountingServer.Application.AssemblyReference).Assembly);
 builder.Services.AddAutoMapper(typeof(AccountingServer.Persistance.AssemblyReference).Assembly);
+builder.Services.AddScoped<ICompanyService, CompanyService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setup =>
