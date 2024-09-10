@@ -2,17 +2,15 @@
 using AccountingServer.Domain.Repositories;
 using AccountingServer.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AccountingServer.Persistance.Repositories
 {
 	public class CommandRepository<T> : ICommandRepository<T>
 		where T : Entity
 	{
+		private static readonly Func<CompanyDbContext,string,Task<T>> GetByIdCompiled =
+			EF.CompileAsyncQuery((CompanyDbContext context,string id) => context.Set<T>().FirstOrDefault(x => x.Id == id));
+
 		private CompanyDbContext _context;
 		public DbSet<T> Entity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
@@ -22,39 +20,40 @@ namespace AccountingServer.Persistance.Repositories
 			Entity = _context.Set<T>();
 		}
 
-		public Task AddAsync(T entity)
+		public async Task AddAsync(T entity)
 		{
-			throw new NotImplementedException();
+			await Entity.AddAsync(entity);
 		}
 
-		public Task AddRangeAsync(IEnumerable<T> entities)
+		public async Task AddRangeAsync(IEnumerable<T> entities)
 		{
-			throw new NotImplementedException();
+			await Entity.AddRangeAsync(entities);	
 		}
 
 		public void Remove(T entity)
 		{
-			throw new NotImplementedException();
+			Entity.Remove(entity);	
 		}
 
-		public Task RemoveById(string id)
+		public async Task RemoveById(string id)
 		{
-			throw new NotImplementedException();
+			T entity = await GetByIdCompiled(_context, id);	
+			Remove(entity);
 		}
 
 		public void RemoveRange(IEnumerable<T> entities)
 		{
-			throw new NotImplementedException();
+			Entity.RemoveRange(entities);	
 		}
 
 		public void Update(T entity)
 		{
-			throw new NotImplementedException();
+			Entity.Update(entity);
 		}
 
 		public void UpdateRange(IEnumerable<T> entities)
 		{
-			throw new NotImplementedException();
+			Entity.UpdateRange(entities);	
 		}
 	}
 }

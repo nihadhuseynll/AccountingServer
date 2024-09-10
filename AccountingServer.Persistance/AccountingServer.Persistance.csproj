@@ -21,8 +21,4 @@
     <ProjectReference Include="..\AccountingServer.Domain\AccountingServer.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\CompanyServices\" />
-  </ItemGroup>
-
 </Project>

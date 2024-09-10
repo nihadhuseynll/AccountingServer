@@ -1,10 +1,5 @@
 ﻿using AccountingServer.Domain.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AccountingServer.Domain.Repositories
 {
@@ -12,7 +7,7 @@ namespace AccountingServer.Domain.Repositories
 		where T : Entity
 	{
 		IQueryable<T> GetAll();
-		IQueryable<T> GetWehere(Expression<Func<T, bool>> expression);
+		IQueryable<T> GetWhere(Expression<Func<T, bool>> expression);
 		Task<T> GetById(string id);
 		Task<T> GetFirstByExpression(Expression<Func<T, bool>> expression);
 		Task<T> GetFirst();
