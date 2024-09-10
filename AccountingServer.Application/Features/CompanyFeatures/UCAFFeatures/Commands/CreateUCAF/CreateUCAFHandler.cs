@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AccountingServer.Application.Services.CompanyServices;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,17 @@ namespace AccountingServer.Application.Features.CompanyFeatures.UCAFFeatures.Com
 {
 	public sealed class CreateUCAFHandler : IRequestHandler<CreateUCAFRequest, CreateUCAFResponse>
 	{
+		private readonly IUCAFService _uCAFService;
+
+		public CreateUCAFHandler(IUCAFService uCAFService)
+		{
+			_uCAFService = uCAFService;
+		}
+
 		public async Task<CreateUCAFResponse> Handle(CreateUCAFRequest request, CancellationToken cancellationToken)
 		{
-			return new(); 
+			await _uCAFService.CreateUCAFAsync(request);
+			return new CreateUCAFResponse();	
 		}
 	}
 }

@@ -1,6 +1,8 @@
-﻿using AccountingServer.Domain.AppEntities;
+﻿using AccountingServer.Domain.Abstractions;
+using AccountingServer.Domain.AppEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace AccountingServer.Persistance.Context
 {
@@ -45,7 +47,22 @@ namespace AccountingServer.Persistance.Context
 		{
 			modelBuilder.ApplyConfigurationsFromAssembly(typeof(AssemblyReference).Assembly);
 		}
-
+		public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+		{
+			var entries = ChangeTracker.Entries<Entity>();
+			foreach (var entry in entries)
+			{
+				if(entry.State == EntityState.Added)
+				{
+					entry.Property(p => p.CreatedDate).CurrentValue = DateTime.Now;
+				}
+				if(entry.State == EntityState.Modified)
+				{
+				    entry.Property(p=>p.UpdatedDate).CurrentValue = DateTime.Now;
+				}
+			}
+			return base.SaveChangesAsync(cancellationToken);
+		}
 		public class CompanyDbContextFactory : IDesignTimeDbContextFactory<CompanyDbContext>
 		{
 			public CompanyDbContext CreateDbContext(string[] args)

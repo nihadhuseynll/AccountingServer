@@ -12,7 +12,7 @@ namespace AccountingServer.Persistance.Repositories
 			EF.CompileAsyncQuery((CompanyDbContext context,string id) => context.Set<T>().FirstOrDefault(x => x.Id == id));
 
 		private CompanyDbContext _context;
-		public DbSet<T> Entity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public DbSet<T> Entity { get ; set ; }
 
 		public void SetDbContextInstance(DbContext context)
 		{

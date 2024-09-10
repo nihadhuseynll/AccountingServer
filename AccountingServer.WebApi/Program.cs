@@ -1,4 +1,5 @@
 using AccountingServer.Application.Services.AppServices;
+using AccountingServer.Application.Services.CompanyServices;
 using AccountingServer.Domain;
 using AccountingServer.Domain.AppEntities.Identity;
 using AccountingServer.Domain.Repositories.UCAFRepositories;
@@ -7,6 +8,7 @@ using AccountingServer.Persistance.Context;
 using AccountingServer.Persistance.Repositories;
 using AccountingServer.Persistance.Repositories.UCAFRepositories;
 using AccountingServer.Persistance.Services.AppServices;
+using AccountingServer.Persistance.Services.CompanyServices;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +31,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUCAFCommandRepository,UCAFCommandRepository>();	
 builder.Services.AddScoped<IUCAFQueryRepository,UCAFQueryRepository>();
 builder.Services.AddScoped<IContextService, ContextService>();
+builder.Services.AddScoped<IUCAFService,UCAFService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
